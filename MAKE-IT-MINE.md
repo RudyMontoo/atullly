@@ -1,7 +1,7 @@
 # Making this portfolio mine
 
 This repo started as a clone of [SinghCharanjeet11/My_Portfolio](https://github.com/SinghCharanjeet11/My_Portfolio).
-The design, layout and motion are unchanged — the content is now Rudra Sharma's.
+The design, layout and motion are unchanged — the content is now Atul Kumar Singh's.
 
 **Status: done.** Content, resume, photo and all three project screenshots are in.
 Nothing is outstanding except the optional item below.

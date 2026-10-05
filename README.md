@@ -1,4 +1,4 @@
-# Rudra Sharma — Portfolio
+# Atul Kumar Singh — Portfolio
 
 A single-page portfolio for an AI engineer. Fast, typographic, dark-only, and
 readable in one pass. No WebGL, no carousels, nothing that moves on a timer.
