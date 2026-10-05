@@ -24,45 +24,51 @@ interface SkillCategory {
  */
 const skillCategories: SkillCategory[] = [
   {
-    name: 'AI & Agentic',
+    name: 'Android',
     skills: [
-      { name: 'LangChain', icon: '/icons/si-langchain.svg' },
-      // LangGraph has no simple-icons mark of its own.
-      { name: 'LangGraph', icon: '◆' },
-      { name: 'PyTorch', icon: '/icons/si-pytorch.svg' },
-      { name: 'TensorFlow', icon: '/icons/si-tensorflow.svg' },
-      { name: 'scikit-learn', icon: '/icons/si-scikitlearn.svg' },
-      { name: 'Claude Code', icon: '/icons/si-claude.svg' },
+      { name: 'Kotlin', icon: '/icons/si-kotlin.svg' },
+      { name: 'Jetpack Compose', icon: '/icons/si-jetpackcompose.svg' },
+      { name: 'Android SDK', icon: '/icons/si-android.svg' },
+      // Material Design 3 has no simple-icons mark of its own.
+      { name: 'Material 3', icon: '◆' },
+      { name: 'Coroutines & Flow', icon: '◇' },
+      { name: 'ML Kit', icon: '/icons/si-firebase.svg' },
     ],
   },
   {
-    name: 'Languages',
+    name: 'Architecture',
     skills: [
-      { name: 'Python', icon: '/icons/si-python.svg' },
+      // None of these are products, so none of them have a mark.
+      { name: 'Clean Architecture', icon: '◆' },
+      { name: 'MVI', icon: '◇' },
+      { name: 'MVVM', icon: '◇' },
+      { name: 'Koin / Hilt', icon: '◆' },
+      { name: 'Repository pattern', icon: '◇' },
+      { name: 'REST APIs', icon: '◆' },
+    ],
+  },
+  {
+    name: 'Languages & Web',
+    skills: [
       { name: 'Java', icon: '/icons/si-openjdk.svg' },
-      { name: 'C', icon: '/icons/si-c.svg' },
-      { name: 'SQL', icon: '/icons/si-postgresql.svg' },
-    ],
-  },
-  {
-    name: 'Backend & Data',
-    skills: [
-      { name: 'FastAPI', icon: '/icons/si-fastapi.svg' },
-      { name: 'Spring Boot', icon: '/icons/si-springboot.svg' },
-      { name: 'MongoDB', icon: '/icons/si-mongodb.svg' },
+      { name: 'JavaScript', icon: '/icons/si-javascript.svg' },
       { name: 'React', icon: '/icons/si-react.svg' },
-      { name: 'REST APIs', icon: '◇' },
+      { name: 'Node.js', icon: '/icons/si-nodedotjs.svg' },
+      { name: 'Express', icon: '/icons/si-express.svg' },
+      { name: 'Ktor', icon: '/icons/si-kotlin.svg' },
     ],
   },
   {
-    name: 'Cloud & Tools',
+    name: 'Data & Tools',
     skills: [
-      { name: 'Google Cloud', icon: '/icons/si-googlecloud.svg' },
-      { name: 'AWS', icon: '/icons/si-amazonwebservices.svg' },
-      { name: 'Docker', icon: '/icons/si-docker.svg' },
-      { name: 'Linux', icon: '/icons/si-linux.svg' },
+      { name: 'PostgreSQL', icon: '/icons/si-postgresql.svg' },
+      { name: 'MongoDB', icon: '/icons/si-mongodb.svg' },
+      { name: 'Firebase', icon: '/icons/si-firebase.svg' },
+      { name: 'Android Studio', icon: '/icons/si-androidstudio.svg' },
+      { name: 'Gradle KTS', icon: '/icons/si-gradle.svg' },
       { name: 'Git', icon: '/icons/si-git.svg' },
-      { name: 'CI/CD', icon: '/icons/si-githubactions.svg' },
+      { name: 'Linux', icon: '/icons/si-linux.svg' },
+      { name: 'Claude Code', icon: '/icons/si-claude.svg' },
     ],
   },
 ]

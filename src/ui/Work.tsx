@@ -114,7 +114,12 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
               rel="noreferrer noopener"
               className="btn btn-accent"
             >
-              Visit the live site
+              {/* Two of these ship to Google Play rather than to a URL someone
+                  visits, and "the live site" is simply wrong for an app
+                  listing. The destination decides the verb. */}
+              {project.links.live.includes('play.google.com')
+                ? 'Get it on Google Play'
+                : 'Visit the live site'}
             </a>
           )}
           {project.links.repo && (
@@ -135,7 +140,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
         {project.image && (
           <img
             src={project.image}
-            alt={`${project.title} — the live site`}
+            alt={`${project.title} — a screenshot of the shipped project`}
             loading="lazy"
             className="mt-14 w-full rounded-[var(--radius-lg)] border border-line"
           />

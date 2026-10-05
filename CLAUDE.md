@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is right now
 
-Started as a clone of `SinghCharanjeet11/My_Portfolio` (a friend's site) and has been
-**personalized for Rudra Sharma**, an AI engineer. The design, layout and motion are
-deliberately unchanged; only the content was replaced.
+Started as a clone of `SinghCharanjeet11/My_Portfolio` (a friend's site), was
+personalized for Rudra Sharma, and has since been **re-personalized for Atul Kumar
+Singh**, a native Android developer. The design, layout and motion are deliberately
+unchanged through both swaps; only the content was replaced.
 
 So the default assumption for any request here is a **content edit, not a redesign**.
 Don't restyle, restructure sections, or change the palette unless asked directly.

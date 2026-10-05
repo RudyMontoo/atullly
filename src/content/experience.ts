@@ -21,14 +21,21 @@ export interface Role {
 
 export const experience: Role[] = [
   {
-    org: 'ServiceNow University × SmartBridge',
-    title: 'ServiceNow Virtual Intern',
-    period: 'Jun 2026 — Jul 2026',
+    org: 'InnoGeeks Club, KIET',
+    title: 'Android Domain Coordinator',
+    period: 'Sep 2024 — Present',
     summary:
-      'Built Service Catalog and Incident Management workflows on the ServiceNow AI Platform, ' +
-      'covering platform administration, Flow Designer, the Automated Test Framework and ' +
-      'agentic AI fundamentals, alongside 15+ hours of CSA exam-prep coursework.',
-    stack: ['ServiceNow', 'Flow Designer', 'ATF', 'Agentic AI'],
+      'Teaches Kotlin and Jetpack Compose to 200+ students through structured classes, code ' +
+      'reviews and architectural guidance, and shipped the club’s official Android app to the ' +
+      'Google Play Store.',
+    stack: ['Kotlin', 'Jetpack Compose', 'Clean Architecture', 'Code review'],
+  },
+  {
+    org: 'NASA Space Apps Challenge 2025, KIET',
+    title: 'Organizing Team Member',
+    period: '2025',
+    summary:
+      'Co-coordinated the campus 48-hour hackathon, covering mentor scheduling and event logistics.',
   },
 ]
 
@@ -41,16 +48,16 @@ export interface Education {
 
 export const education: Education[] = [
   {
-    institution: 'Krishna Institute of Engineering & Technology, Delhi-NCR',
+    institution: 'Krishna Institute of Engineering & Technology (KIET)',
     qualification: 'B.Tech, Computer Science & Engineering',
     period: '2024 — 2028',
-    detail: 'CGPA 8.57 / 10',
+    detail: 'CGPA 8.89 / 10',
   },
   {
-    institution: 'Elpis Global School, Biswan',
+    institution: 'Elpis Global School, Biswan, Sitapur',
     qualification: 'Senior Secondary (CBSE)',
-    period: '2022 — 2023',
-    detail: '86%',
+    period: '2021 — 2023',
+    detail: '89.2%',
   },
 ]
 
@@ -65,19 +72,23 @@ export interface Achievement {
  */
 export const achievements: Achievement[] = [
   {
-    label: 'Smart India Hackathon 2026 — Finalist',
-    detail: 'Yojna Sarthi, a 13-agent multilingual scheme assistant',
+    label: 'Two apps shipped to the Google Play Store',
+    detail: 'PDFit at 4.5 stars, and Innogeeks, KIET’s official club app',
   },
   {
-    label: 'Google Cloud Gen AI Academy APAC 2026 — Top 50 across Asia',
-    detail: 'VEDA, a 6-agent M&A system across 10 GCP services',
+    label: 'Android Domain Coordinator, InnoGeeks Club, KIET',
+    detail: 'Sep 2024 — Present · instructing 200+ students in Kotlin & Jetpack Compose',
   },
-  { label: 'AWS Certified Machine Learning Engineer — Associate', detail: '2026' },
+  {
+    label: 'Frostbyte Hackathon — Grand Finale',
+    detail: 'TradeX, an AI-powered trading platform across four markets',
+  },
+  {
+    label: 'NASA Space Apps Challenge 2025, KIET — Organizing Team',
+    detail: 'co-coordinated the campus 48-hour hackathon',
+  },
+  { label: 'AWS Certified Developer — Associate', detail: '2026' },
   { label: 'AWS Certified AI Practitioner', detail: '2026' },
   { label: 'AWS Certified Cloud Practitioner', detail: '2026' },
-  { label: 'Gen AI Academy Elite Club', detail: '2026' },
-  { label: 'Hakaccino4 Hackathon 2026', detail: 'shipped NaviX, an AI risk navigator, in 24 hours' },
-  { label: 'Cisco Networking Academy', detail: '2026' },
-  { label: 'LeetCode — 500+ problems solved', detail: 'top 15% globally' },
-  { label: 'CGPA 8.57 / 10', detail: 'B.Tech CSE, KIET Delhi-NCR · 2024–2028' },
+  { label: 'CGPA 8.89 / 10', detail: 'top 5% of class · B.Tech CSE, KIET · 2024–2028' },
 ]

@@ -35,27 +35,39 @@ r, g, b = a[..., 0], a[..., 1], a[..., 2]
 denom = np.maximum(r, 1.0)
 backdrop = (r > 18) & (g / denom < 0.30) & (b / denom < 0.34)
 
-# Keep only the backdrop connected to the frame edge. The suit reaches the
-# bottom of the frame and the neck touches the backdrop on both sides, so a
-# global mask would leak into the figure; a border-connected one cannot.
+# Discard backdrop by *area*, not by whether it reaches the frame edge.
+#
+# A border-connected flood assumes every region the silhouette encloses belongs
+# to the figure, which holds only while the pose stays open. Hands in pockets
+# close a loop on each side, and the wedge of backdrop between arm and torso is
+# then unreachable from the border — a flood leaves it opaque and the figure
+# ships with two red triangles in it.
+#
+# Size separates the two cases without assuming a pose: the backdrop is one huge
+# region plus, at most, wedges of real negative space, while everything the
+# ratio test misfires on inside the figure (pinholes in dark hair, specks on the
+# beard) is tiny. So drop every backdrop region above the threshold and keep the
+# small ones as figure.
 labels, n = ndimage.label(backdrop)
-edge = np.concatenate([labels[0, :], labels[-1, :], labels[:, 0], labels[:, -1]])
-outside = np.isin(labels, np.unique(edge[edge > 0]))
+if n:
+    areas = ndimage.sum(backdrop, labels, range(1, n + 1))
+    # 0.05% of the frame — far above a hair pinhole, far below the wedge an arm
+    # makes against the torso.
+    speck_max = 0.0005 * backdrop.size
+    drop = np.isin(labels, np.flatnonzero(areas >= speck_max) + 1)
+else:
+    drop = np.zeros_like(backdrop)
 
-alpha = np.where(outside, 0, 255).astype(np.uint8)
-
-# Close pinholes the ratio test punched in dark hair, then drop specks of
-# backdrop it missed inside the silhouette.
-solid = ndimage.binary_closing(alpha > 0, structure=np.ones((5, 5)))
-solid = ndimage.binary_fill_holes(solid)
+# Close the pinholes the ratio test punched in dark hair.
+solid = ndimage.binary_closing(~drop, structure=np.ones((5, 5)))
 alpha = np.where(solid, 255, 0).astype(np.uint8)
 
 # Despill. The backdrop throws red onto hair and shoulders, and against the
 # site's dark ground that rim reads as a magenta halo. Pull red back toward the
 # other two channels, but only in the 4px band along the edge — doing it
 # everywhere would drain the skin.
-band = (ndimage.binary_dilation(alpha == 0, iterations=4)) & (alpha > 0)
-ceiling = np.maximum(g, b) * 1.35 + 12
+band = (ndimage.binary_dilation(alpha == 0, iterations=9)) & (alpha > 0)
+ceiling = np.maximum(g, b) * 1.15 + 6
 rgb = a.copy()
 rgb[..., 0] = np.where(band, np.minimum(r, ceiling), r)
 

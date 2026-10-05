@@ -66,124 +66,129 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'yojna-setu',
-    title: 'Yojna Setu',
-    pitch: 'Tells you which government schemes you actually qualify for.',
+    id: 'innogeeks',
+    title: 'Innogeeks',
+    pitch: 'The official app for KIET’s largest technical club.',
     description:
-      'A multilingual conversational assistant over 4,900+ Indian government schemes, in six languages. A 13-agent LangGraph architecture handles the conversation and a criteria-by-criteria rules engine decides eligibility, so an answer is traceable to the rule that produced it rather than generated and hoped for. Document upload runs through local-vision OCR, and the whole thing takes voice as well as text.',
-    metric: { value: '4,900+', label: 'schemes indexed' },
+      'A native Android app for InnoGeeks, the club that takes around 1,500 applicants a year, shipped to the Google Play Store. Twenty screens in 100% Jetpack Compose cover guest browsing, a full authentication suite and a recruitment tracker that shows live status across fee payment, aptitude test, interview and final decision. One session drives four different role experiences — Guest, Registered, Member and Coordinator — each with its own navigation.',
+    metric: { value: '1,500', label: 'applicants a year' },
     stats: [
-      { value: '13', label: 'agent LangGraph architecture' },
-      { value: '6', label: 'Indian languages supported' },
+      { value: '20', label: 'screens in pure Compose' },
+      { value: '111', label: 'Compose previews' },
     ],
-    stack: ['FastAPI', 'LangGraph', 'Spring Boot', 'MongoDB Atlas', 'React', 'Azure'],
-    links: { live: 'https://yojsarthi.in/', repo: 'https://github.com/RudyMontoo/YojnaSetu_v5' },
-    image: '/work/yojna-setu.jpg',
-    period: 'Feb 2026 — Present',
-    study: {
-      headline: 'Eligibility you can trace, in the language you speak',
-      client: 'Yojna Setu · Smart India Hackathon 2026 finalist',
-      objective:
-        'India runs thousands of welfare schemes, and the reason people miss the ones they qualify for is almost never that the information is secret — it is that it is scattered, in the wrong language, and written in criteria nobody wants to read.',
-      goal:
-        'Answer "what am I entitled to?" from a plain-language conversation, in six languages, against 4,900+ schemes — and be able to show exactly which criterion each answer turned on.',
-      audience:
-        'Citizens applying for welfare schemes, including people who would rather speak than type and who are not reading English.',
-      direction: [
-        'A single large prompt cannot do this reliably. The work is split across a 13-agent LangGraph architecture, so language handling, document understanding, eligibility checking and response drafting are separate agents with their own contracts rather than one model asked to juggle all four.',
-        'Eligibility specifically is not left to the model. A criteria-by-criteria rules engine evaluates each scheme condition explicitly, which is what makes a result auditable — the system can point at the rule that passed or failed instead of producing a confident paragraph.',
-        'Because it handles identity documents, the data path was designed around that from the start: AES-256 field encryption, prompt-injection guards on every model boundary, and a retention posture built for DPDP Act 2023 compliance.',
-      ],
-      scope: [
-        '13-agent LangGraph orchestration over 4,900+ schemes',
-        'Criteria-by-criteria eligibility rules engine',
-        'Jan-Sahayak Lens — local-vision OCR document ingestion',
-        'Real-time voice pipeline: Pipecat with Sarvam AI Saaras v3 STT and Bulbul v3 TTS',
-        'MongoDB Atlas Vector Search for scheme retrieval',
-        'AES-256 field encryption and prompt-injection guards, DPDP Act 2023 aligned',
-        'Dockerised deployment on Azure Container Apps',
-      ],
-    },
-  },
-
-  {
-    id: 'veda',
-    title: 'VEDA',
-    pitch: 'M&A due diligence in minutes instead of weeks.',
-    description:
-      'A multi-agent venture evaluation system on Google Cloud that compresses M&A due-diligence processing from six to twelve weeks down to under five minutes. Six agents run asynchronously across ten GCP services — code audits, regulatory checks, and a Deal Intelligence Layer that scores an investment 0–100 using Vertex embeddings and the Natural Language API.',
-    metric: { value: '<5 min', label: 'per diligence run' },
-    stats: [
-      { value: '6', label: 'asynchronous agents in the pipeline' },
-      { value: '10', label: 'GCP services orchestrated' },
-    ],
-    stack: ['Vertex AI', 'Gemini 2.5 Flash', 'FastAPI', 'MCP', 'BigQuery', 'Cloud Run'],
+    stack: ['Kotlin', 'Jetpack Compose', 'MVI', 'Clean Architecture', 'Koin', 'Ktor'],
     links: {
-      live: 'https://veda-api-790567978781.us-central1.run.app',
-      repo: 'https://github.com/RudyMontoo/VEDA',
+      live: 'https://play.google.com/store/apps/details?id=edu.kiet.innogeeks',
+      repo: 'https://github.com/mahakaal2005/InnogeeksApp',
     },
-    image: '/work/veda.jpg',
-    period: 'Mar — Apr 2026',
+    image: '/work/innogeeks.jpg',
+    period: 'Jul 2026 — Present',
     study: {
-      headline: 'Six agents, ten GCP services, one investment score',
-      client: 'VEDA · Google Cloud Gen AI Academy APAC — top 50',
+      headline: 'One session, four roles, twenty screens of Compose',
+      client: 'InnoGeeks · KIET’s largest technical club',
       objective:
-        'Due diligence on a venture is weeks of specialists reading documents, auditing code and checking regulatory exposure. Most of that work is legible to a machine; almost none of it had been handed to one.',
+        'A club running a 1,500-applicant recruitment cycle was tracking it through notices and group messages. Applicants had no way to tell where they stood, and the people running it had no single place that said so.',
       goal:
-        'Take a target company and return a structured evaluation — including a 0–100 investment score — fast enough to be used inside a live deal conversation rather than after it.',
+        'Put the whole cycle in one app — browse as a guest, sign up, and then watch your own status move through fee payment, aptitude test, interview and decision — without the app becoming four apps in a trench coat.',
       audience:
-        'Investors and corporate development teams running technical and regulatory diligence on acquisition or funding targets.',
+        'Students deciding whether to apply, applicants mid-cycle, existing members, and the coordinators running the process.',
       direction: [
-        'The pipeline is asynchronous by design. Six agents — code audit, regulatory check, and the rest — run independently rather than in a chain, because a sequential pipeline would inherit the latency of its slowest stage and there is no dependency between most of these checks.',
-        'Scoring sits in a separate Deal Intelligence Layer built on Vertex embeddings and the Natural Language API, so the number is derived from the collected evidence rather than asked for directly. Gemini 2.5 Flash handles the reasoning steps where latency matters more than depth.',
-        'Agents reach their tools over MCP, which keeps the tool surface declarative and made it possible to add capabilities without rewriting orchestration. BigQuery holds the structured output so a result is queryable afterwards, not just readable once.',
+        'Role is a property of the session, not a separate build. Guest, Registered, Member and Coordinator each render a distinct tab set from the same navigation graph, which is what keeps a single binary from splintering into four parallel flows that drift apart.',
+        'The app is Feature-Driven Clean Architecture with formal MVI. The domain layer has zero Android imports, which is a constraint rather than a style: it means the recruitment logic can be reasoned about and tested without an emulator, and errors travel as typed values rather than as thrown exceptions nobody catches.',
+        'Every repository is Koin-swappable between a live Ktor client and an in-memory implementation, so screens were built and reviewed long before the endpoints existed. Token persistence goes through DataStore, and the frosted-glass Haze surfaces are backed by 111 Compose previews so the UI could be checked without a full run.',
       ],
       scope: [
-        'Six-agent asynchronous evaluation pipeline on Cloud Run',
-        'Automated code audits and regulatory compliance checks',
-        'Deal Intelligence Layer — Vertex embeddings plus the Natural Language API',
-        '0–100 investment score derived from collected evidence',
-        'MCP tool interface across the agent set',
-        'Ten GCP services orchestrated end to end, BigQuery for structured results',
+        '20 screens in 100% Jetpack Compose, shipped to Google Play',
+        'Session-driven role-based navigation across four role types',
+        'Full auth suite — self-serve signup, email-gated login, password reset, account deletion',
+        'Recruitment tracker spanning fee payment, aptitude test, interview and decision',
+        'Feature-Driven Clean Architecture, formal MVI, zero-Android-import domain layer',
+        'Live REST over Ktor with Koin-swappable in-memory implementations',
+        'DataStore token persistence and frosted-glass Haze UI, 111 Compose previews',
       ],
     },
   },
 
   {
-    id: 'signease',
-    title: 'SignEase',
-    pitch: 'Real-time ASL translation on a video call.',
+    id: 'tradex',
+    title: 'TradeX',
+    pitch: 'AI trading signals with the reasoning attached.',
     description:
-      'A Chrome extension that translates American Sign Language to speech and back during video calls, at 98.66% letter and 80.94% word accuracy. Hand tracking runs on-device through MediaPipe so the video never leaves the machine, with a PyTorch recognition model behind it and multi-tier TTS/STT that falls back to local synthesis when the network does not cooperate.',
-    metric: { value: '98.66%', label: 'letter accuracy' },
+      'A full-stack trading platform built for the Frostbyte Hackathon Grand Finale, carrying real-time market data across crypto, stocks, forex and commodities. A Gemini Flash 1.5 signal engine computes RSI, MACD, Bollinger Bands, EMA and SMA, then returns BUY/SELL/HOLD with a confidence score, a price target and its full reasoning. TTL-based in-memory caching keeps it inside the API rate limit, and a rule-based fallback means a signal still arrives when the model does not.',
+    metric: { value: '4', label: 'markets covered' },
     stats: [
-      { value: '80.94%', label: 'word-level accuracy' },
-      { value: '100%', label: 'hand tracking on-device' },
+      { value: '5', label: 'technical indicators' },
+      { value: '0', label: 'signals lost to rate limits' },
     ],
-    stack: ['PyTorch', 'MediaPipe', 'FastAPI', 'Chrome Extension'],
-    links: { repo: 'https://github.com/FaiquaNaeem/SignEase' },
-    image: '/work/signease.jpg',
-    period: 'Nov 2025',
+    stack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Gemini API', 'Vite'],
+    links: {
+      live: 'https://tradex.atul08.in/signin',
+      repo: 'https://github.com/mahakaal2005/TradeX',
+    },
+    image: '/work/tradex.jpg',
+    period: 'Nov 2025 — Apr 2026',
     study: {
-      headline: 'Bidirectional ASL on a video call, without sending the video anywhere',
-      client: 'SignEase · team project',
+      headline: 'A signal is only useful if it tells you why',
+      client: 'TradeX · Frostbyte Hackathon Grand Finale',
       objective:
-        'Video calling assumes everyone on it speaks. ASL users get a captioning experience built for speech, in one direction, and nothing at all going the other way.',
+        'Most retail trading tools either dump raw indicators on you or hand down a verdict with nothing behind it. The first needs expertise the user does not have; the second asks for trust it has not earned.',
       goal:
-        'Translate ASL to speech and speech to ASL live inside an existing video call, accurately enough to be usable rather than demonstrable, and without shipping someone\'s camera feed to a server.',
+        'Return a BUY/SELL/HOLD call across four asset classes with a confidence score, a price target and the reasoning that produced it — and never return nothing.',
       audience:
-        'ASL users and the hearing people they are on calls with — the point is that neither side installs a different product.',
+        'Retail traders who want a starting read on an instrument without having to interpret five indicators themselves.',
       direction: [
-        'Hand tracking runs on-device through MediaPipe. That was a privacy decision first, but it is also what makes the latency budget work: only landmark coordinates go to the recognition model, not frames.',
-        'The most instructive part was a bug, not a feature. Word accuracy had collapsed to 5.83% and the model looked like the problem; the actual cause was handedness mislabeling in the data pipeline, which meant the model was being trained and evaluated on inconsistently mirrored inputs. Fixing the labelling took word accuracy to 80.94%.',
-        'Speech synthesis is multi-tier — Sarvam and Piper with automatic local fallback — because a translation layer that stops working when an API is slow is worse than one that degrades quietly to a local voice.',
+        'The indicators are computed deterministically — RSI, MACD, Bollinger Bands, EMA and SMA — and only then handed to Gemini Flash 1.5 for the reasoning step. Putting the arithmetic in code rather than in the prompt is what keeps the same inputs from producing two different numbers.',
+        'Rate limiting was the real constraint, not latency. Market data refreshes far faster than a free-tier quota allows, so responses go through a TTL-based in-memory cache keyed by instrument and window, which collapses a burst of users watching the same ticker into one upstream call.',
+        'Underneath that sits a rule-based fallback over the same indicators. It is deliberately worse than the model, and that is the point: a degraded signal with lower stated confidence is more useful than an empty panel when the API is down.',
       ],
       scope: [
-        'Chrome extension overlaying live video calls',
-        'PyTorch ASL recognition at 98.66% letter and 80.94% word accuracy',
-        'On-device MediaPipe hand tracking, landmarks only',
-        'Bidirectional ASL ↔ speech translation',
-        'Multi-tier Sarvam/Piper TTS-STT with automatic local fallback',
+        'Real-time data across crypto, stocks, forex and commodities',
+        'React 18 and Vite frontend, Node.js/Express and PostgreSQL backend on Render',
+        'Gemini Flash 1.5 signal engine over RSI, MACD, Bollinger Bands, EMA and SMA',
+        'BUY/SELL/HOLD with confidence score, price target and full reasoning',
+        'TTL-based in-memory caching against API rate-limit exhaustion',
+        'Rule-based fallback guaranteeing signal availability',
+      ],
+    },
+  },
+
+  {
+    id: 'pdfit',
+    title: 'PDFit',
+    pitch: 'A document scanner that never phones home.',
+    description:
+      'An offline-first Android document scanner on the Google Play Store, sitting at 4.5 stars. Google ML Kit handles edge detection and perspective correction on-device, and the PDF is generated locally — no ads, no account, no cloud. Documents live in a Room database with a Compose and MVVM front end, so scanning an ID or a bank statement never involves uploading it anywhere.',
+    metric: { value: '4.5★', label: 'Play Store rating' },
+    stats: [
+      { value: '100%', label: 'processing on-device' },
+      { value: '0', label: 'ads or accounts' },
+    ],
+    stack: ['Kotlin', 'Jetpack Compose', 'ML Kit', 'Room', 'MVVM'],
+    links: {
+      live: 'https://play.google.com/store/apps/details?id=com.pdfit.scanner',
+      repo: 'https://github.com/mahakaal2005/PDFit',
+    },
+    image: '/work/pdfit.jpg',
+    period: 'Jul — Sep 2025',
+    study: {
+      headline: 'The scanner you can use on a document you would not upload',
+      client: 'PDFit · on the Google Play Store',
+      objective:
+        'The document scanners people actually have installed are ad-supported and cloud-backed. That is a poor trade for the documents most worth scanning — identity papers, bank statements, signed forms.',
+      goal:
+        'Scan, correct and export a PDF entirely on the device, at a quality that holds up against the cloud-backed apps, with no account and no ads.',
+      audience:
+        'Anyone scanning documents they would rather not hand to a third party, on a phone that may not have a connection anyway.',
+      direction: [
+        'Everything that touches the image runs locally through Google ML Kit — edge detection, perspective correction, then PDF generation. Offline-first here is a privacy guarantee first and a connectivity feature second; there is no upload path to disable because none was built.',
+        'Storage is a Room database rather than loose files in shared storage, which is what makes the document list, rename and re-export work predictably instead of breaking the first time the user moves something in a file manager.',
+        'The UI is Jetpack Compose over MVVM, kept deliberately thin. A scanner is used in a hurry, usually one-handed, so the path from opening the app to a shareable PDF is the thing that got the attention.',
+      ],
+      scope: [
+        'Offline-first scanner shipped to Google Play at a 4.5-star rating',
+        'On-device edge detection and perspective correction via Google ML Kit',
+        'Local PDF generation and sharing, no account and no ads',
+        'Room-backed document management with Jetpack Compose and MVVM',
       ],
     },
   },

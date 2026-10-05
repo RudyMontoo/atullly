@@ -5,29 +5,29 @@
  */
 
 export const profile = {
-  name: 'Rudra Sharma',
-  role: 'AI Engineer',
+  name: 'Atul Kumar Singh',
+  role: 'Android Developer',
 
   /** The one line that has to survive a 15-second visit. */
   tagline:
-    'Building production-grade generative AI — LLMs, RAG, and multi-agent systems that run in front of real users.',
+    'Building native Android that ships — Kotlin, Jetpack Compose and Clean Architecture, on the Play Store in front of real users.',
 
-  location: 'Ghaziabad, India',
-  status: 'Available for entry-level AI Engineer roles',
+  location: 'Ghaziabad, Uttar Pradesh, India',
+  status: 'Available for Android Developer roles',
   /** Short form for the hero and the closing call to action. */
-  availabilityShort: 'Open to AI Engineer roles',
+  availabilityShort: 'Open to Android roles',
 
   about:
-    'I am a Computer Science undergraduate and AWS-certified AI engineer who builds ' +
-    'production-grade generative AI systems — LLMs, retrieval pipelines, and multi-agent ' +
-    'orchestration — in Python, FastAPI, LangChain and LangGraph. I work fluently with ' +
-    'agentic developer tooling (Claude Code, MCP servers, custom skills) to ship and audit ' +
-    'AI systems end to end, and I deploy them on GCP, AWS and Azure.',
+    'I am a Computer Science undergraduate and native Android developer who builds ' +
+    'production apps in Kotlin and Jetpack Compose, structured with Clean Architecture ' +
+    'and formal MVI. Two of them are live on the Google Play Store. I coordinate the ' +
+    'Android domain at InnoGeeks, KIET’s largest technical club, where I teach Kotlin ' +
+    'and Compose to 200+ students, and I work across the stack when a project needs it.',
 
   greeting: "Hello, I'm",
 
   /** Role line under the portrait, pipe-separated in the reference's manner. */
-  roleLine: 'AI Engineer | LLMs & Multi-Agent Systems | CS Undergrad',
+  roleLine: 'Android Developer | Kotlin & Jetpack Compose | CS Undergrad',
 
   /**
    * The about story, in short paragraphs.
@@ -38,13 +38,13 @@ export const profile = {
    * junior candidate legible.
    */
   aboutParagraphs: [
-    'I started out writing ordinary backend code, and then large language models stopped being a demo and started being something you could actually build a product on. That is the line I have been working on ever since: not a chat box bolted to the side of an app, but systems where the model is load-bearing.',
-    'Most of what I have shipped since is agentic. A 13-agent LangGraph assistant that reads 4,900+ government schemes in six languages and tells someone what they actually qualify for. A six-agent due-diligence pipeline on Vertex AI that turns weeks of M&A work into minutes. The hard part is almost never the prompt — it is orchestration, retrieval quality, and what happens when one agent in the graph returns nonsense.',
-    'Right now I am going deeper on evaluation and reliability for agent systems, and on the tooling around them — MCP servers, custom Claude Code skills, and the kind of context engineering that decides whether an agent is useful or just expensive.',
+    'I started on Android because it was the shortest path between writing code and putting it in someone’s hand. That has not really changed. The thing I care about is the gap between an app that demos and an app that survives a real install base — and the only way to learn that gap is to ship and then keep maintaining it.',
+    'PDFit was the first to go up: an offline-first document scanner, no ads, no cloud, everything local through ML Kit and Room. It sits at 4.5 stars. Then came Innogeeks, the official app for a club that takes about 1,500 applicants a year — 20 screens in pure Compose, four distinct roles with their own navigation, and a recruitment tracker people actually check.',
+    'What I have been going deeper on is architecture: a domain layer with zero Android imports, typed errors instead of thrown ones, dependencies swappable at the Koin graph so a screen can be built against an in-memory fake long before the endpoint exists. Teaching it to 200+ students at InnoGeeks is what forced me to be able to explain why, not just do it.',
   ] as const,
 
   /** Two-tone section heading for About: second line takes the accent. */
-  aboutHeading: ['Building AI systems', 'that hold up in production.'] as const,
+  aboutHeading: ['Building Android apps', 'that live on the Play Store.'] as const,
 
   /**
    * The hero masthead, two words. The second takes the accent colour.
@@ -53,8 +53,14 @@ export const profile = {
    * of the line, so a two-letter word like "AI" disappears behind it entirely
    * and the layering reads as a bug. Ten to eleven characters each is the band
    * that fills the width without wrapping at 14vw.
+   *
+   * Single words only — no spaces. "ANDROID APPS" is the right length, but at
+   * 420px it wraps to two lines and the figure then covers the whole of the
+   * first one, which is worse than the partial occlusion it was fixing.
+   * "ANDROID" loses its middle to the figure on desktop and still reads,
+   * because the word is familiar enough to complete from its ends.
    */
-  heroWords: ['GENERATIVE', 'AI SYSTEMS'] as const,
+  heroWords: ['PRODUCTION', 'ANDROID'] as const,
 
   /**
    * Transparent cut-out for the layered hero.
@@ -63,9 +69,15 @@ export const profile = {
    * an opaque rectangle would paint over it — which is exactly why a flat
    * photograph could never be layered this way.
    *
-   * Currently an illustrated avatar that shipped with transparency already. If
-   * you swap back to a photograph shot against a solid backdrop, run
-   * scripts/make-cutout-chroma.py over it first to cut the background out.
+   * Currently an illustrated avatar. It arrived as a *painted-in* transparency
+   * checkerboard — RGB, no alpha channel at all — so it went through
+   * scripts/make-cutout.mjs, which floods the board out from the border. The
+   * "PORTFOLIO" watermark had to be cropped off first: it sits on the jacket
+   * rather than on the board, so the flood can never reach it.
+   *
+   * For a photograph shot against a solid red backdrop, use
+   * scripts/make-cutout-chroma.py instead. Either way, run one of them over the
+   * replacement rather than exporting a rectangle.
    */
   heroCutout: '/cutout.png',
   /**
@@ -80,26 +92,22 @@ export const profile = {
   aboutPortrait: '/portrait.png',
 
   links: {
-    email: 'rudrashr.3184@gmail.com',
+    email: 'atul.k.singh5002@gmail.com',
     /** E.164 for the `tel:` href — dialled, not read. */
-    phone: '+917355039475',
-    github: 'https://github.com/RudyMontoo',
-    linkedin: 'https://linkedin.com/in/rudra-sharma-78628232b',
-    leetcode: 'https://leetcode.com/u/RudyMontoo/',
-    x: 'https://x.com/RMontoo18708',
-    instagram: 'https://www.instagram.com/kalsmynn/',
+    phone: '+919336474830',
+    github: 'https://github.com/mahakaal2005',
+    linkedin: 'https://linkedin.com/in/atulkumarsingh5002',
+    leetcode: 'https://leetcode.com/u/Atul5002/',
     resume: '/resume.pdf',
   },
 
   /** Display handles. The LinkedIn slug is shortened rather than shown raw. */
   handles: {
     /** Grouped for reading, unlike `links.phone`, which has to stay dialable. */
-    phone: '+91 73550 39475',
-    github: 'RudyMontoo',
-    linkedin: 'rudra-sharma',
-    leetcode: 'RudyMontoo',
-    x: 'RMontoo18708',
-    instagram: 'kalsmynn',
+    phone: '+91 93364 74830',
+    github: 'mahakaal2005',
+    linkedin: 'atulkumarsingh5002',
+    leetcode: 'Atul5002',
   },
 
   /**
@@ -108,10 +116,10 @@ export const profile = {
    * measured things, each traceable to a project or a public profile.
    */
   proof: [
-    { value: '4,900+', label: 'government schemes indexed' },
-    { value: 'Top 50', label: 'Gen AI Academy, across APAC' },
-    { value: '500+', label: 'DSA problems solved' },
-    { value: '8.57', label: 'CGPA / 10' },
+    { value: '2', label: 'apps on Google Play' },
+    { value: '4.5★', label: 'PDFit user rating' },
+    { value: '200+', label: 'students taught Kotlin' },
+    { value: '8.89', label: 'CGPA / 10' },
   ] as const,
 
   /**
@@ -120,24 +128,24 @@ export const profile = {
    */
   capabilities: [
     {
-      title: 'Multi-agent systems',
-      body: 'Agent graphs that hold state and recover — LangGraph orchestration, tool calling, and routing across a dozen specialised agents rather than one prompt doing everything.',
-      tags: ['LangGraph', 'LangChain', 'Tool calling', 'MCP servers'],
+      title: 'Native Android',
+      body: 'Apps built the way the platform wants them: Kotlin throughout, 100% Jetpack Compose UI on Material 3, coroutines and Flow for everything asynchronous.',
+      tags: ['Kotlin', 'Jetpack Compose', 'Material 3', 'Coroutines'],
     },
     {
-      title: 'RAG & retrieval',
-      body: 'Retrieval that returns the right passage rather than a plausible one: vector search, chunking strategy, eligibility rules engines, and evaluation on top of both.',
-      tags: ['Vector search', 'MongoDB Atlas', 'ChromaDB', 'Embeddings'],
+      title: 'App architecture',
+      body: 'Structure that survives a second feature — Clean Architecture with a zero-Android-import domain layer, formal MVI state, typed error transport and dependencies swapped at the graph.',
+      tags: ['Clean Architecture', 'MVI', 'MVVM', 'Koin / Hilt'],
     },
     {
-      title: 'Backend for AI',
-      body: 'The unglamorous half — FastAPI services, async pipelines, field-level encryption and prompt-injection guards, so a model in production is something you can operate.',
-      tags: ['Python', 'FastAPI', 'Async pipelines', 'REST APIs'],
+      title: 'Offline-first & data',
+      body: 'Storage that works on a train: Room and DataStore for local truth, Ktor against live REST endpoints, and a sync path that treats the network as optional rather than assumed.',
+      tags: ['Room', 'DataStore', 'Ktor', 'REST APIs'],
     },
     {
-      title: 'Cloud deployment',
-      body: 'Shipping it somewhere real: Vertex AI and Cloud Run on GCP, Container Apps on Azure, containerised and deployed rather than parked in a notebook.',
-      tags: ['Vertex AI', 'Cloud Run', 'Azure', 'Docker'],
+      title: 'Full-stack when needed',
+      body: 'The other half, when a project needs a backend behind it — React and Node with Express over PostgreSQL, deployed and serving real traffic rather than parked locally.',
+      tags: ['React', 'Node.js', 'Express', 'PostgreSQL'],
     },
   ] as const,
 
@@ -147,13 +155,13 @@ export const profile = {
    * reading for a list this long.
    */
   tools: [
-    'python',
-    'fastapi',
-    'langchain',
-    'pytorch',
-    'googlecloud',
-    'amazonwebservices',
-    'docker',
+    'kotlin',
+    'android',
+    'jetpackcompose',
+    'firebase',
+    'postgresql',
+    'react',
+    'nodedotjs',
     'git',
   ] as const,
 
@@ -165,7 +173,7 @@ export const profile = {
   closingVerbs: ['build', 'ship', 'scale'] as const,
 
   /** Shown in the hero's supporting rail. */
-  focus: ['Generative AI systems', 'Multi-agent orchestration', 'Cloud & backend'] as const,
+  focus: ['Native Android', 'Clean Architecture', 'Offline-first apps'] as const,
 } as const
 
 export type Profile = typeof profile
