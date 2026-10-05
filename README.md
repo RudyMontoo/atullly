@@ -52,3 +52,4 @@ in more depth.
 
 Static SPA. `npm run build`, then serve `dist/`. Vercel, Netlify and GitHub
 Pages all work with no configuration.
+# atullly
